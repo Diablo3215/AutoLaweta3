@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AutoLaweta24 | Szybki transport i pomoc drogowa</title>
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+
+    <style>
+        /* Zmienne kolorystyczne */
+        :root {
+            --primary-navy: #0B1D3A; /* Głęboki granat */
+            --accent-gold: #E5A93C;  /* Nowoczesne złoto */
+            --bg-light: #F8F9FA;     /* Bardzo jasny szary na tła */
+            --text-dark: #212529;
+            --text-light: #FFFFFF;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            color: var(--text-dark);
+            background-color: var(--text-light);
+            scroll-behavior: smooth;
+        }
+
+        /* Sekcje i przestrzeń (Whitespace) */
+        section {
+            padding: 100px 0;
+        }
+
+        .bg-navy {
+            background-color: var(--primary-navy);
+            color: var(--text-light);
+        }
+
+        .bg-light-gray {
+            background-color: var(--bg-light);
+        }
+
+        /* Przyciski */
+        .btn-gold {
+            background-color: var(--accent-gold);
+            color: var(--primary-navy);
+            font-weight: 600;
+            padding: 15px 30px;
+            border-radius: 8px;
+            border: 2px solid var(--accent-gold);
+            transition: all 0.3s ease;
+        }
+
+        .btn-gold:hover {
+            background-color: transparent;
+            color: var(--accent-gold);
+        }
+
+        /* Navbar */
+        .navbar {
+            background-color: var(--primary-navy);
+            padding: 20px 0;
+        }
+        .navbar-brand {
+            color: var(--accent-gold) !important;
+            font-weight: 800;
+            font-size: 1.5rem;
+            letter-spacing: 1px;
+        }
+        .nav-link {
+            color: var(--text-light) !important;
+            font-weight: 400;
+            margin-left: 15px;
+            transition: color 0.3s;
+        }
+        .nav-link:hover {
+            color: var(--accent-gold) !important;
+        }
+
+        /* Hero Section */
+        .hero-section {
+            background: linear-gradient(135deg, #0B1D3A 0%, #1a365d 100%);
+            padding: 150px 0 120px;
+            text-align: center;
+            color: var(--text-light);
+        }
+        .hero-section h1 {
+            font-weight: 800;
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+        }
+        .hero-section h1 span {
+            color: var(--accent-gold);
+        }
+        .hero-section p {
+            font-size: 1.2rem;
+            font-weight: 300;
+            margin-bottom: 40px;
+            opacity: 0.9;
+        }
+
+        /* Karty Ofert i Cennika */
+        .card {
+            border: none;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            transition: transform 0.3s ease;
+            height: 100%;
+        }
+        .card:hover {
+            transform: translateY(-10px);
+        }
+        .card-title {
+            color: var(--primary-navy);
+            font-weight: 600;
+        }
+        .price-tag {
+            font-size: 2rem;
+            color: var(--accent-gold);
+            font-weight: 800;
+        }
+
+        /* Opinie */
+        .testimonial-box {
+            background: var(--text-light);
+            padding: 40px;
+            border-radius: 12px;
+            border-left: 5px solid var(--accent-gold);
+            box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+        }
+
+        /* Formularz Kontaktowy */
+        .form-control {
+            padding: 15px;
+            border-radius: 8px;
+            border: 1px solid #ddd;
+        }
+        .form-control:focus {
+            border-color: var(--accent-gold);
+            box-shadow: 0 0 0 0.2rem rgba(229, 169, 60, 0.25);
+        }
+
+        /* Stopka */
+        footer {
+            background-color: var(--primary-navy);
+            color: var(--text-light);
+            padding: 50px 0 20px;
+        }
+        footer p {
+            opacity: 0.7;
+            font-size: 0.9rem;
+        }
+
+        /* Responsywność */
+        @media (max-width: 768px) {
+            .hero-section h1 { font-size: 2.5rem; }
+            section { padding: 60px 0; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar navbar-expand-lg fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="#">AutoLaweta<span>.</span></a>
+            <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation" style="filter: invert(1);">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item"><a class="nav-link" href="#o-nas">O nas</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#oferta">Oferta</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#cennik">Cennik</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#opinie">Opinie</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#kontakt">Kontakt</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <header class="hero-section">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <h1>Awaria na drodze? <br><span>Ogarniemy to.</span></h1>
+                    <p>Szybki transport aut, motocykli i quadów. Działamy 24/7, bez ukrytych kosztów i zbędnego stresu. Zadzwoń, a będziemy u Ciebie w mgnieniu oka.</p>
+                    <a href="#kontakt" class="btn btn-gold text-uppercase">Skontaktuj się z nami</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <section id="o-nas">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6 mb-4 mb-lg-0">
+                    <h2 class="fw-bold mb-4" style="color: var(--primary-navy);">Nie tracimy Twojego czasu</h2>
+                    <p class="text-muted">Wiemy, jak frustrująca potrafi być awaria samochodu w środku nocy lub w drodze na ważne spotkanie. Jesteśmy młodym, dynamicznym zespołem, który stawia na jasną komunikację i szybkie działanie.</p>
+                    <p class="text-muted">Nasza flota to nowoczesne, bezpieczne lawety, które poradzą sobie z każdym wyzwaniem - od przewozu zepsutego gruza na warsztat, po transport świeżo kupionego auta z zagranicy.</p>
+                </div>
+                <div class="col-lg-5 offset-lg-1">
+                    <div class="bg-light-gray p-5 rounded-4 text-center">
+                        <h3 class="fw-bold" style="color: var(--accent-gold);">24/7</h3>
+                        <p class="mb-0 fw-bold" style="color: var(--primary-navy);">Dostępność</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="oferta" class="bg-light-gray">
+        <div class="container">
+            <div class="text-center mb-5">
+                <h2 class="fw-bold" style="color: var(--primary-navy);">Co robimy?</h2>
+                <p class="text-muted">Proste rozwiązania dla Twoich problemów na drodze.</p>
+            </div>
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <div class="card p-4 text-center">
+                        <h4 class="card-title mb-3">Holowanie awaryjne</h4>
+                        <p class="text-muted mb-0">Zepsute auto? Wypadek? Przyjedziemy, załadujemy i bezpiecznie dowieziemy pod wskazany adres lub do mechanika.</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card p-4 text-center">
+                        <h4 class="card-title mb-3">Transport aut</h4>
+                        <p class="text-muted mb-0">Kupiłeś samochód, motocykl lub quada? Przewieziemy go bezpiecznie na miejsce, niezależnie od tego, czy ma tablice, czy nie.</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card p-4 text-center">
+                        <h4 class="card-title mb-3">Pomoc na drodze</h4>
+                        <p class="text-muted mb-0">Dowóz paliwa, odpalanie z kabli (bo zapomniałeś wyłączyć świateł), zmiana koła. Drobne usterki ogarniamy na miejscu.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="cennik">
+        <div class="container">
+            <div class="text-center mb-5">
+                <h2 class="fw-bold" style="color: var(--primary-navy);">Jasny cennik</h2>
+                <p class="text-muted">Żadnych ukrytych opłat. Wiesz, za co płacisz.</p>
+            </div>
+            <div class="row justify-content-center g-4">
+                <div class="col-lg-4 col-md-6">
+                    <div class="card p-5 text-center">
+                        <h4 class="card-title">Na terenie miasta</h4>
+                        <div class="price-tag my-3">od 150 zł</div>
+                        <ul class="list-unstyled text-muted mb-4">
+                            <li class="mb-2">Szybki dojazd</li>
+                            <li class="mb-2">Bezpieczny załadunek</li>
+                            <li>Transport pod dom/warsztat</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="card p-5 text-center" style="border: 2px solid var(--accent-gold);">
+                        <div class="badge bg-navy text-uppercase mb-3" style="width: max-content; margin: 0 auto; color: var(--accent-gold);">Najpopularniejsze</div>
+                        <h4 class="card-title">Trasa (poza miastem)</h4>
+                        <div class="price-tag my-3">2,50 zł / km</div>
+                        <ul class="list-unstyled text-muted mb-4">
+                            <li class="mb-2">Opłata początkowa 100 zł</li>
+                            <li class="mb-2">Ubezpieczenie ładunku</li>
+                            <li>Dojazd w całej Polsce</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="opinie" class="bg-light-gray">
+        <div class="container">
+            <div class="text-center mb-5">
+                <h2 class="fw-bold" style="color: var(--primary-navy);">Co mówią nasi klienci?</h2>
+            </div>
+            <div class="row g-4">
+                <div class="col-md-6">
+                    <div class="testimonial-box">
+                        <p class="fst-italic text-muted">"Silnik padł mi o 2 w nocy na autostradzie. Ekipa z AutoLawety była u mnie w 30 minut. Konkretnie, szybko i bez zbytniego gadania. Polecam w 100%!"</p>
+                        <h6 class="fw-bold mt-4 mb-0" style="color: var(--primary-navy);">Kamil, 24 lata</h6>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="testimonial-box">
+                        <p class="fst-italic text-muted">"Kupiłam pierwsze auto na drugim końcu województwa i bałam się nim wracać na kołach. Zleciliśmy transport, wszystko poszło gładko, a kierowca był mega pomocny."</p>
+                        <h6 class="fw-bold mt-4 mb-0" style="color: var(--primary-navy);">Zuzia, 21 lat</h6>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="kontakt">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-5 mb-5 mb-lg-0">
+                    <h2 class="fw-bold mb-4" style="color: var(--primary-navy);">Potrzebujesz pomocy?</h2>
+                    <p class="text-muted mb-4">Wypełnij formularz obok, a my oddzwonimy z wyceną. Jeśli sprawa jest pilna - po prostu zadzwoń!</p>
+                    
+                    <div class="d-flex align-items-center mb-3">
+                        <div class="me-3 p-3 rounded-circle" style="background: var(--bg-light); color: var(--accent-gold);">
+                            <strong>TEL</strong>
+                        </div>
+                        <div>
+                            <h5 class="mb-0 fw-bold">+48 123 456 789</h5>
+                            <small class="text-muted">Czynne 24/7</small>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6 offset-lg-1">
+                    <div class="bg-light-gray p-5 rounded-4">
+                        <form>
+                            <div class="mb-3">
+                                <label for="name" class="form-label fw-bold">Imię</label>
+                                <input type="text" class="form-control" id="name" placeholder="Twoje imię">
+                            </div>
+                            <div class="mb-3">
+                                <label for="phone" class="form-label fw-bold">Numer telefonu</label>
+                                <input type="tel" class="form-control" id="phone" placeholder="Twój numer kontaktowy">
+                            </div>
+                            <div class="mb-4">
+                                <label for="message" class="form-label fw-bold">Krótki opis sytuacji (skąd - dokąd)</label>
+                                <textarea class="form-control" id="message" rows="3" placeholder="Napisz, jak możemy pomóc..."></textarea>
+                            </div>
+                            <button type="submit" class="btn btn-gold w-100">Wyślij wiadomość</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container text-center">
+            <h4 class="fw-bold mb-4" style="color: var(--accent-gold);">AutoLaweta.</h4>
+            <p class="mb-0">&copy; 2026 AutoLaweta. Wszelkie prawa zastrzeżone.</p>
+            <p class="mt-2">Projekt i wdrożenie dla nowoczesnych kierowców.</p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
