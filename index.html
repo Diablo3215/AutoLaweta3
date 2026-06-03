@@ -3,6 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Security Headers -->
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net https://unpkg.com; style-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net https://fonts.googleapis.com https://unpkg.com; font-src 'self' https://fonts.gstatic.com https://cdn.jsdelivr.net; img-src 'self' data: https:; frame-src https://www.google.com; connect-src 'self' https://formspree.io;">
+    <meta name="referrer" content="strict-origin-when-cross-origin">
+    <meta http-equiv="X-Content-Type-Options" content="nosniff">
     <title>AutoLaweta24 | Szybki transport i pomoc drogowa</title>
     
     <!-- Bootstrap CSS -->
@@ -412,22 +416,22 @@
                         <form id="contactForm">
                             <div class="mb-3">
                                 <label for="name" class="form-label fw-bold">Imię / Nazwa firmy</label>
-                                <input type="text" class="form-control" id="name" name="name" data-fs-field placeholder="np. Jan Kowalski" required>
+                                <input type="text" class="form-control" id="name" name="name" data-fs-field placeholder="np. Jan Kowalski" maxlength="100" required>
                                 <span class="text-danger small mt-1" data-fs-error="name"></span>
                             </div>
                             <div class="mb-3">
                                 <label for="phone" class="form-label fw-bold">Numer telefonu</label>
-                                <input type="tel" class="form-control" id="phone" name="phone" data-fs-field placeholder="+48 XXX XXX XXX" required>
+                                <input type="tel" class="form-control" id="phone" name="phone" data-fs-field placeholder="+48 XXX XXX XXX" pattern="[\+0-9\-\s]{9,15}" title="Podaj prawidłowy numer telefonu (np. +48 123 456 789)" maxlength="15" required>
                                 <span class="text-danger small mt-1" data-fs-error="phone"></span>
                             </div>
                             <div class="mb-3">
                                 <label for="email" class="form-label fw-bold">Adres e-mail (opcjonalnie)</label>
-                                <input type="email" class="form-control" id="email" name="email" data-fs-field placeholder="twoj@email.pl">
+                                <input type="email" class="form-control" id="email" name="email" data-fs-field placeholder="twoj@email.pl" maxlength="100">
                                 <span class="text-danger small mt-1" data-fs-error="email"></span>
                             </div>
                             <div class="mb-4">
                                 <label for="message" class="form-label fw-bold">Krótki opis (skąd - dokąd, jaki pojazd)</label>
-                                <textarea class="form-control" id="message" name="message" data-fs-field rows="4" placeholder="Np. Transport BMW e46, z Warszawy do Poznania, auto nie odpala..." required></textarea>
+                                <textarea class="form-control" id="message" name="message" data-fs-field rows="4" placeholder="Np. Transport BMW e46, z Warszawy do Poznania, auto nie odpala..." maxlength="1000" required></textarea>
                                 <span class="text-danger small mt-1" data-fs-error="message"></span>
                             </div>
                             <button type="submit" data-fs-submit-btn class="btn btn-gold w-100 fs-5"><i class="bi bi-send-fill me-2"></i> Wyślij zapytanie</button>
@@ -443,11 +447,6 @@
             <h3 class="fw-bold mb-3" style="color: var(--accent-gold);">AutoLaweta<span class="text-white">.</span></h3>
             <p class="mb-2">&copy; 2026 AutoLaweta. Wszelkie prawa zastrzeżone.</p>
             <p class="mb-4">Szybki i bezpieczny transport pojazdów na terenie całej Polski i Europy.</p>
-            
-            <div class="d-flex justify-content-center gap-3 mb-4">
-                <a href="#" class="text-white fs-4"><i class="bi bi-facebook"></i></a>
-                <a href="#" class="text-white fs-4"><i class="bi bi-instagram"></i></a>
-            </div>
         </div>
     </footer>
     <!-- Bootstrap Bundle JS -->
