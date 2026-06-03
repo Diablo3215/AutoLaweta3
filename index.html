@@ -401,25 +401,36 @@
                 <div class="col-lg-6 offset-lg-1" data-aos="fade-left" data-aos-delay="200">
                     <div class="bg-light-gray p-5 rounded-4 border">
                         <h4 class="fw-bold mb-4" style="color: var(--primary-navy);">Szybka wycena</h4>
-                        <!-- Formspree Integration Placeholder -->
-                        <form action="https://formspree.io/f/YOUR_FORM_ID_HERE" method="POST" id="contactForm">
+                        <!-- Formspree Integration (Ajax) -->
+                        <div data-fs-success class="alert alert-success fw-bold" style="display:none;" role="alert">
+                            <i class="bi bi-check-circle-fill me-2"></i> Dziękujemy! Wiadomość została pomyślnie wysłana.
+                        </div>
+                        <div data-fs-error class="alert alert-danger" style="display:none;" role="alert">
+                            Wystąpił błąd. Spróbuj ponownie lub zadzwoń.
+                        </div>
+                        
+                        <form id="contactForm">
                             <div class="mb-3">
                                 <label for="name" class="form-label fw-bold">Imię / Nazwa firmy</label>
-                                <input type="text" class="form-control" id="name" name="name" placeholder="np. Jan Kowalski" required>
+                                <input type="text" class="form-control" id="name" name="name" data-fs-field placeholder="np. Jan Kowalski" required>
+                                <span class="text-danger small mt-1" data-fs-error="name"></span>
                             </div>
                             <div class="mb-3">
                                 <label for="phone" class="form-label fw-bold">Numer telefonu</label>
-                                <input type="tel" class="form-control" id="phone" name="phone" placeholder="+48 XXX XXX XXX" required>
+                                <input type="tel" class="form-control" id="phone" name="phone" data-fs-field placeholder="+48 XXX XXX XXX" required>
+                                <span class="text-danger small mt-1" data-fs-error="phone"></span>
                             </div>
                             <div class="mb-3">
                                 <label for="email" class="form-label fw-bold">Adres e-mail (opcjonalnie)</label>
-                                <input type="email" class="form-control" id="email" name="email" placeholder="twoj@email.pl">
+                                <input type="email" class="form-control" id="email" name="email" data-fs-field placeholder="twoj@email.pl">
+                                <span class="text-danger small mt-1" data-fs-error="email"></span>
                             </div>
                             <div class="mb-4">
                                 <label for="message" class="form-label fw-bold">Krótki opis (skąd - dokąd, jaki pojazd)</label>
-                                <textarea class="form-control" id="message" name="message" rows="4" placeholder="Np. Transport BMW e46, z Warszawy do Poznania, auto nie odpala..." required></textarea>
+                                <textarea class="form-control" id="message" name="message" data-fs-field rows="4" placeholder="Np. Transport BMW e46, z Warszawy do Poznania, auto nie odpala..." required></textarea>
+                                <span class="text-danger small mt-1" data-fs-error="message"></span>
                             </div>
-                            <button type="submit" class="btn btn-gold w-100 fs-5"><i class="bi bi-send-fill me-2"></i> Wyślij zapytanie</button>
+                            <button type="submit" data-fs-submit-btn class="btn btn-gold w-100 fs-5"><i class="bi bi-send-fill me-2"></i> Wyślij zapytanie</button>
                             <small class="text-muted mt-3 d-block text-center">Dane chronione. Formularz obsługiwany przez Formspree.</small>
                         </form>
                     </div>
@@ -443,6 +454,8 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
     <!-- AOS Animation Library JS -->
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <!-- Formspree Ajax JS -->
+    <script src="https://unpkg.com/@formspree/ajax@1" defer></script>
     
     <script>
         // Inicjalizacja animacji AOS
@@ -462,16 +475,9 @@
                 }
             });
         });
-        // Formspree obsługa (opcjonalnie można dodać AJAX, by nie przeładowywało strony po wysłaniu)
-        var form = document.getElementById("contactForm");
-        form.addEventListener("submit", function(ev) {
-            // Ponieważ nie masz jeszcze skonfigurowanego Formspree, zablokujemy na razie wysłanie
-            // z informacją dla użytkownika. Gdy podmienisz YOUR_FORM_ID_HERE, usuń ten kod.
-            if(form.action.includes("YOUR_FORM_ID_HERE")) {
-                ev.preventDefault();
-                alert("Aby formularz działał, musisz zarejestrować się na Formspree.io i podmienić 'YOUR_FORM_ID_HERE' w kodzie HTML.");
-            }
-        });
+        // Formspree obsługa (AJAX)
+        window.formspree = window.formspree || function () { (formspree.q = formspree.q || []).push(arguments); };
+        formspree('initForm', { formElement: '#contactForm', formId: 'mojzadej' });
     </script>
 </body>
 </html>
